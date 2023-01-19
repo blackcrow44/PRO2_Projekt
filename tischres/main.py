@@ -1,16 +1,45 @@
-# This is a sample Python script.
+# Flask importieren
+from flask import Flask
+from flask import render_template
+from flask import request
 
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+app = Flask(__name__)
+
+# JSON importieren
+import json
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Strg+F8 to toggle the breakpoint.
+# Homepage
+@app.route('/', methods=["GET", "POST"])
+def homepage():
+    # JSON File wird gelesen
+    with open('data/reservationen.json', 'r') as f:
+        file = json.load(f)
+    if request.method == "GET":
+        return render_template("index.html")
+    elif request.method == "POST":
+        return new_reservation(request.form)
+
+def new_reservation(form):
+    for field in form.keys():
+        if form[field] == "":
+            return render_template("error.html", title="Fehlermeldung", nachricht="Feld muss ausgefüllt sein.")
+        try:
+            telefonnummer = int(form["Telefonnummer"])
+        except ValueError:
+            return render_template("error.html", title='Fehlermeldung', nachricht="Die Hausnummer ist keine Zahl. Wenn keine Hausnummer vorhanden ist, bitte 0 eingeben.")
+    #date = datetime.strptime(reservation["Datum"], "%Y-%m-%d")
+
+     #   newRes = {
+    #      "Name": reservation["Name"],
+     #       "Anzahl Personen": reservation["Anzahl Personen"],
+      #      "Datum": reservation.strftime("%d.%m.%Y")
+       #     "Uhrzeit": reservation["Uhrzeit"],
+        #    "Telefonnummer": reservation["Telefonnummer"],
+        #}
+        #reservationen.append(newRes)
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
