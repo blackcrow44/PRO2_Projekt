@@ -23,12 +23,11 @@ def homepage():
 def new_reservation(form):
     for field in form.keys():
         if form[field] == "":
-            return render_template("error.html", title="Fehlermeldung", nachricht="Feld muss ausgefüllt sein.")
+            return render_template("error.html", title="Fehlermeldung", nachricht="Felder dürfen nicht leer sein.")
         try:
             telefonnummer = int(form["Telefonnummer"])
         except ValueError:
-            return render_template("error.html", title='Fehlermeldung', nachricht="Die Hausnummer ist keine Zahl. Wenn keine Hausnummer vorhanden ist, bitte 0 eingeben.")
-    #date = datetime.strptime(reservation["Datum"], "%Y-%m-%d")
+            return render_template("error.html", title='Fehlermeldung', nachricht="Telefonnummer ist ungültig.")
 
      #   newRes = {
     #      "Name": reservation["Name"],

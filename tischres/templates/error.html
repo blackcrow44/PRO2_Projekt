@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
-<div>
-    <h4>{{nachricht}}</h4>
-</div>
+    <div class="banner">
+			<div class="header">
+				<h1>Restaurant Hello World</h1>
+			</div>
+    </div>
 
-<form>
-<!-- Mit diesem Button gelangt man auf die Startseite zurück. -->
- <input type="button" value="Zurück zur Startseite" onclick="history.back()">
-</form>
+    <div class="nachricht">
+        <h4>{{nachricht}}</h4>
+        <form>
+        <!-- Zurück zur Homepage. -->
+        <input type="button" value="Zurück zur Startseite" onclick="history.back()">
+        </form>
+    </div>
+
 </body>
 </html>

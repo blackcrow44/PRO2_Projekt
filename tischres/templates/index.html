@@ -6,28 +6,32 @@
 		<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 	</head>
 	<body>
-		<h1>Restaurant Hello World</h1><br>
-		<h2>Tischreservation</h2>
+		<div class="banner">
+			<div class="header">
+				<h1>Restaurant Hello World</h1>
+			</div>
+		</div>
 
-<div class="formular">
-	<form method="POST">
-		<label for="name">Name</label><br>
-    	<input type="text" id="name" name="name"><br>
-		<label for="anzahlp">Anzahl Personen</label><br>
-		<input type="text" id="anzahlp" name="anzahlp"><br>
-		<label for="datum">Datum</label><br>
-		<input type="date" id="datum" name="datum"><br>
-		<label for="uhrzeit">Uhrzeit</label><br>
-		<select name="uhrzeit" id="uhrzeit">
-			<option value="18-20">18:00 - 20:00</option>
-			<option value="19-21">19:00 - 21:00</option>
-			<option value="20-22">20:00 - 22:00</option>
-		</select><br>
-		<label for="telefonnummer">Telefonnummer</label><br>
-		<input type="text" id="telefonnummer" name="telefonnummer"><br>
-    	<button type="submit">Senden</button>
-	</form>
-</div>
+		<div class="formular">
+			<h2>Tischreservation</h2>
+			<form method="POST">
+				<label for="name">Name</label><br>
+    			<input type="text" id="name" name="name"><br>
+				<label for="anzahlp">Anzahl Personen</label><br>
+				<input type="text" id="anzahlp" name="anzahlp"><br>
+				<label for="datum">Datum</label><br>
+				<input type="date" id="datum" name="datum"><br>
+				<label for="uhrzeit">Uhrzeit</label><br>
+				<select name="uhrzeit" id="uhrzeit">
+					<option value="18-20">18:00 - 20:00</option>
+					<option value="19-21">19:00 - 21:00</option>
+					<option value="20-22">20:00 - 22:00</option>
+				</select><br>
+				<label for="telefonnummer">Telefonnummer</label><br>
+				<input type="text" id="telefonnummer" name="telefonnummer"><br>
+    			<button type="submit">Senden</button>
+			</form>
+		</div>
 
 	</body>
 </html>
