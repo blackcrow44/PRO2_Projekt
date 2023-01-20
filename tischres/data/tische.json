@@ -1,0 +1,16 @@
+{
+    "Zweiertisch":
+    {
+        "Kapazitaet": 2,
+        "TischNrStart": 1,
+        "TischNrEnd": 10
+    },
+
+    "Vierertisch":
+    {
+        "Kapazitaet": 4,
+        "TischNrStart": 11,
+        "TischNrEnd": 20
+    }
+
+   }
